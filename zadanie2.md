@@ -9,35 +9,7 @@ W 1 kroku tworzymy plik opisujący działanie łańcucha GitHub Actions
 
 Zawartość pliku YML:
 
-name: Docker Build
-'on':
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: DockerHub Login
-        uses: docker/login-action@v1
-        with:
-          username: '${{ secrets.DOCKER_USERNAME }}'
-          password: '${{ secrets.DOCKER_PASSWORD }}'
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: |
-            zygmuntdeveloper/server-image:linux-amd64
-            zygmuntdeveloper/server-image:linux-arm64-v8
-          platforms: 'linux/amd64,linux/arm64/v8'
+<img width="1051" alt="Zrzut ekranu 2023-06-14 o 22 53 54" src="https://github.com/vcxxkv/zadanie2-pfswcho/assets/134099778/42d2f414-468a-4021-a02a-53a213ae0e49">
 
 
 Następnie po dokonaniu push'a do repo, następuje wywołanie łańcucha GitHub Actions, jego wyniki prezentują się następująco:
